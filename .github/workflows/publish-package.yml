@@ -1,0 +1,37 @@
+name: Publish Package
+
+on:
+  - release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: make sha.header
+      - run: yarn install
+      - run: yarn build
+      - run: yarn test
+      - run: yarn lint
+      - name: Fetch JFrog npmrc
+        run: curl -u "github-actions:${{ secrets.GHA_JFROG_PASS }}" https://wassonece.jfrog.io/artifactory/api/npm/auth > $HOME/.npmrc
+      - run: yarn publish --use-yarnrc $HOME/.npmrc --non-interactive --registry https://wassonece.jfrog.io/artifactory/api/npm/privatenpm/
+      - name: Clean up .npmrc
+        run: rm $HOME/.npmrc
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://npm.pkg.github.com"
+          # Defaults to the user or organization that owns the workflow file
+          scope: "@wasson-ece"
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
