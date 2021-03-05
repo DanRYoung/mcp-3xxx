@@ -2,9 +2,9 @@
   "compilerOptions": {
     /*
      * Uncomment for small accuracy reduction & vast build time reduction for
-     * --watch mode 
+     * --watch mode
      */
-    // "assumeChangesOnlyAffectDirectDependencies": true,
+    "assumeChangesOnlyAffectDirectDependencies": true,
     "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
     "declaration": true,
@@ -14,12 +14,13 @@
     "lib": ["esnext"],
     "module": "CommonJS",
     "moduleResolution": "node",
-    "noImplicitThis":true,
+    "noImplicitThis": true,
     "outDir": "build",
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
-    "target": "es2020",
+    "target": "es6",
+    "rootDir": "src"
   },
   "exclude": ["**/build/"]
 }

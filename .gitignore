@@ -6,3 +6,4 @@ dist
 /**/sha.ts
 /**/sha.h
 *.tgz
+tsconfig.tsbuildinfo

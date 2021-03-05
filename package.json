@@ -1,28 +1,30 @@
 {
-  "name": "@wasson-ece/ts-template",
+  "name": "mcp-3xxx",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:wasson-ece/ts-template.git",
-  "author": "Wasson-ECE Instrumentation <admin@wasson-ece.com>",
+  "main": "build/index.js",
+  "repository": "git@github.com:DanRYoung/mcp-3xxx.git",
+  "author": "Daniel Young <rdanielyoung@protonmail.com>",
+  "license": "MIT",
+  "types": "build/index.d.ts",
   "scripts": {
     "start": "node build/index.js",
     "prestart": "npm run build",
-    "build": "tsc --build src",
+    "build": "tsc",
     "dev": "nodemon",
-    "test": "env TS_NODE_PROJECT=\"test/tsconfig.json\" mocha test/**/*.test.ts --require ts-node/register",
     "lint": "eslint",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "prepublish": "tsc"
   },
   "devDependencies": {
-    "@types/mocha": "^8.2.0",
     "@types/node": "^14.14.25",
     "eslint": "^7.19.0",
     "husky": "^5.0.9",
-    "mocha": "^8.2.1",
     "nodemon": "^2.0.7",
-    "pinst": "^2.1.4",
     "prettier": "^2.2.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "spi-device": "^3.1.0"
   }
 }
