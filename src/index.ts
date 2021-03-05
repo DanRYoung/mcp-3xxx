@@ -61,6 +61,15 @@ const closeSpiDevice = (device: SpiDevice): Promise<void> =>
     });
   });
 
+/**
+ * Connect to an MCP3xxx series A/D converter
+ *
+ * [Click for MCP3008 Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/21295d.pdf)
+ *
+ * @param kind Board type, e.g. "3008"
+ * @param channel MCP channel which the analog sensor/device is connected to
+ * @param options Override the default MCP `bus` or `speed`
+ */
 export const connect = <K extends McpKind>(
   kind: K,
   channel: Channel<K>,
@@ -70,7 +79,7 @@ export const connect = <K extends McpKind>(
     _validateKind(kind);
     _validateChannel(kind, channel);
 
-    const mergedOptions = { bus: 0, speed: 0, ...options! };
+    const mergedOptions = { bus: 0, speed: 0, ...options };
     const config = McpConfigurations[kind]!;
 
     const device = spi.open(mergedOptions.bus, mergedOptions.speed, (error) => {
@@ -84,16 +93,3 @@ export const connect = <K extends McpKind>(
       });
     });
   });
-
-const main = async () => {
-  while (true) {
-    const { read, close } = await connect("3008", 0);
-
-    const result = await read();
-    console.log(result);
-    await sleep(500);
-  }
-  // await close();
-};
-
-main();

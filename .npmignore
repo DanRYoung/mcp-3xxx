@@ -1,0 +1,14 @@
+Dockerfile                           
+util/hooks/post-checkout             
+util/hooks/post-commit               
+.husky/pre-commit                    
+.eslintrc.json                       
+.prettierrc.json                     
+nodemon.json                         
+package.json                         
+tsconfig.json                        
+README.md                            
+build/index.d.ts                     
+build/types/mcp-3xxx.d.ts            
+build/mcp3xxx-config.d.ts
+src/*

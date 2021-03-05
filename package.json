@@ -4,8 +4,31 @@
   "main": "build/index.js",
   "repository": "git@github.com:DanRYoung/mcp-3xxx.git",
   "author": "Daniel Young <rdanielyoung@protonmail.com>",
+  "homepage": "https://github.com/DanRYoung/mcp-3xxx",
+  "bugs": {
+    "url": "https://github.com/DanRYoung/mcp-3xxx/issues"
+  },
   "license": "MIT",
   "types": "build/index.d.ts",
+  "description": "Driver for Microchip's MCP3xxx family of ADCs, including MCP3008, MCP3004, MCP3002, MCP3202, MCP3204, MCP3208, MCP3304",
+  "keywords": [
+    "ADC",
+    "mcp3008",
+    "mcp3004",
+    "mcp3002",
+    "mcp3202",
+    "mcp3204",
+    "mcp3208",
+    "mcp3304",
+    "Microchip",
+    "mcp3xxx",
+    "spi",
+    "iot",
+    "raspberry",
+    "raspi",
+    "pi",
+    "linux"
+  ],
   "scripts": {
     "start": "node build/index.js",
     "prestart": "npm run build",
