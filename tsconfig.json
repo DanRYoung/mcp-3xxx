@@ -22,5 +22,6 @@
     "target": "es6",
     "rootDir": "src"
   },
-  "exclude": ["**/build/"]
+  "exclude": ["**/build/"],
+  "include": ["src"]
 }

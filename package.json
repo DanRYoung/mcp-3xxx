@@ -39,7 +39,7 @@
     "dev": "nodemon",
     "lint": "eslint",
     "prepack": "tsc",
-    "pack": "npm pack",
+    "pack": "npm pack build",
     "clean:build": "rm -rf build *.tgz tsconfig.tsbuildinfo",
     "clean": "rm -rf build *.tgz node_modules"
   },
