@@ -1,6 +1,6 @@
 ## MCP-3xxx Driver
 
-This is a Node.js, TypeScript-first library for handling SPI communication with the Microchip's MCP3xxx family of analog-to-digital converters (ADCs). See the [Supported Devices](#supported-devices) list for supported chips.
+This is a Node.js, TypeScript-first library for handling SPI communication with Microchip's MCP3xxx family of analog-to-digital converters (ADCs). See the [Supported Devices](#supported-devices) list for supported chips.
 
 ### Installation
 
